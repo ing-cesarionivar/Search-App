@@ -6,6 +6,50 @@
     <title>SearchMe</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <main>
+        <h1 class="offscreen">Search Me A Wikipedia Powered Search Engine</h1>
+        <section class="searchEntry">
+            <h2 class="offscreen">Search Term Entry</h2>
+            <div class="logo" aria-hidden="true">
+                SearchMe
+            </div>
+            <form id="searchBar" class="searchBar">
+                <label for="search" class="offscreen">Enter a search term or phrase</label>
+                <input id="search" type="text" autocomplete="off">
+                <div id="clear" class="none button clear" role="button" tabindex="0" aria-label="clear search terms">
+                    X
+                </div>
+                <button id="searchButton" class="button searchButton" type="submit" aria-label="Submit button">
+                    Search
+                </button>
+            </form>
+        </section>
+
+        <div class="results">
+            <h2 class="offscreen">Search Results</h2>
+            <div class="statsBar">
+                <div id="stats" class="stats" aria-live="assertive"></div>
+            </div>
+            <div id="searchResults" class="seearchResults">
+                <div class="resultItem">
+                    <div class="resultTitle">
+                        <a href="">Dachshund</a>
+                    </div>
+                    <div class="resultContents">
+                        <div class="resultImage">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Mao-the-dachshund-wikipedia.png/50px-Mao-the-dachsund-wikipedia.png" alt="Dachshund">
+                        </div>
+                        <div class="resultText">
+                            <p class="resultDescription">The dachshund (UK: DAKS-end, DASH, -huund, --huunt or US: DAHKS...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><span aria-hidden="true">&lt;&lt;</span> Powered by <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a><span aria-hidden="true">&gt;&gt;</span></p>
+    </footer>
 </body>
 </html>
