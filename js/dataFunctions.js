@@ -7,7 +7,12 @@ export const getSearchTerm = ()=> {
 
 export const retrieveSearchResults = async (searchTerm) => {
     const wikiSearchString =  getWikiSearchString(searchTerm);
-    const wikiSeearchResults = await requestData(wikiSearchString);
+    const wikiSearchResults = await requestData(wikiSearchString);
+    let resultArray = [];
+    if(wikiSearchResults.hasOwnProperty('query')) {
+        resultArray = processWikiResults(wikiSearchResults.query.pages);
+    }
+    return resultArray;
 }
 
 const getWikiSearchString = (searchTerm) => {
@@ -40,3 +45,22 @@ const requestData = async (searchString) => {
         console.error(err);
     }
 } 
+
+const processWikiResults = (results) => {
+    const resultArray = [];
+    Object.keys(results).forEach(key => {
+        const id = key;
+        const title = results[key].title;
+        const text = results[key].extract;
+        const img  = results[key].hasOwnProperty('thumbnail') ? results[key].thumbnail.source : null;
+        const item = {
+            id, 
+            title, 
+            img,
+            text
+        };
+        resultArray.push(item);
+    })
+
+    return resultArray;
+}
