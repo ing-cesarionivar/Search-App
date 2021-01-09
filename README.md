@@ -5,6 +5,7 @@ This Search App Was Build with Vanilla JavaScripts
 ## Technologies
 - HTML
 - CSS
+- SASS
 - JS
 - Accesibility
 - Responsive Desing (Mobile First)
